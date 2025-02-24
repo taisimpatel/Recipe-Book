@@ -2,11 +2,11 @@
 This is a project in HTML, CSS, and JS for a recipe book.
 
 # In the recipe book example, you can:
-1. Add recipes
-2. View the recipes withe their Ingrdients,Preparation Steps
-3. Edit Recipes
-4. Delete recipes
-5.Search for recipes
+1. Add Recipes
+2. Search Recipes
+3. View the recipes withe their Ingrdients,Preparation Steps and Image
+4. Edit Recipes
+5. Delete recipes
 
 # To Run
 Open the recipe-book folder
