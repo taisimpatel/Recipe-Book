@@ -11,3 +11,7 @@ This is a project in HTML, CSS, and JS for a recipe book.
 # To Run
 Open the recipe-book folder
 Open index.html to view it in the browser
+
+Screen shot of full page is attach below:
+
+![image ali](https://github.com/taisimpatel/Recipe-Book/blob/main/Screenshot_24-2-2025_1573_127.0.0.1.jpeg?raw=true)
