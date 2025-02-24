@@ -1,0 +1,522 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 0;
+}
+
+
+button {
+  padding: 15px 30px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #d13274;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #97144b;
+}
+
+/* Container for Add Recipe Button and Search Bar */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #090124;
+  height: 150px;
+  
+}
+
+header h1 {
+  font-size: 36px;
+  color: white;
+  line-height: 1.7;
+
+}
+
+#addRecipeBtn{
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#addRecipeBtn:hover{
+  background-color: #45a049;
+}
+
+#search{
+  width:800px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius:20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#search::placeholder {
+  color: #888;
+}
+
+#search:focus {
+  outline: none;
+  border-color: #080808;
+}
+
+
+/* Recipe List */
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Recipe Card */
+.recipe-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This helps distribute space */
+  align-items: center; /* Centers content horizontally */
+  height: 350px; /* Fixed height for the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+  background-color: #dfd8eb;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.recipe-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.recipe-card p {
+  display: none;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.recipe-card button {
+  padding: 10px 20px;
+  background-color: #c43889;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: auto; /* Push the button to the bottom */
+  transition: background-color 0.3s ease;
+}
+
+.recipe-card button:hover {
+  background-color:#92175f;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.recipe-card:hover .dropdown {
+  display: flex;
+}
+
+.dropdown button {
+  background: none;
+  color: #333;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Modals */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  
+}
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 5px;
+  max-width: 900px;
+  width: 80%;
+  height: 97%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 13px;
+  border-radius: 25px;
+  overflow-y: auto;
+}
+.modal-content h2 {
+  margin-bottom: 15px; /* Space between heading and content */
+  font-size: 24px;
+  color:black;
+  text-align: center;
+
+}
+.modal-content h3{
+  margin-top:10px;
+  margin-left: 20px;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* Image Styling inside modal */
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  align-items: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+/* Recipe Form */
+form {
+  display: flex;
+  flex-direction: column;
+  margin:10px;
+  
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+
+}
+
+form input, form textarea {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+form textarea {
+  height: 100px;
+  font-weight: bold;
+}
+
+/* Focus Effect */
+input[type="text"]:focus, input[type="file"]:focus, textarea:focus {
+  border-color: black;
+  outline: none;
+}
+
+form button {
+  background-color:#4CAF50;
+  color: white;
+  width:135px;
+  margin-left: 45%;
+  margin-top: 2px;
+  padding: 8px 25px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Delete Confirmation Modal Styles */
+#deleteConfirmModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-content h3 {
+  margin-bottom: 20px;
+}
+
+/* Container for Yes and No buttons */
+.delete-content .button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Add some space between the buttons */
+}
+
+/* Styles for buttons */
+.delete-content button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.delete-content button:hover {
+  background-color: #45a049;
+}
+
+/* Red color for the 'No' button */
+.delete-content button:nth-child(2) {
+  background-color: #f44336;
+}
+
+.delete-content button:nth-child(2):hover {
+  background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 1096px) {
+  /* Tablet View */
+  #search {
+      width: 70%;
+  }
+
+  .recipe-list {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  #addRecipeBtn {
+      width:135px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile View */
+  #search {
+      width: 70%;
+  }
+
+  .recipe-list {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  #addRecipeBtn {
+      width: 135px;
+  }
+  #btn{
+    margin-left: 40%;
+  }
+}
+
+@media(max-width:586px){
+  /* Stack Search Bar and Add Recipe Button */
+  #search
+   {
+      width: 65%; /* Adjust width */
+      margin: 10px auto; /* Center the elements */
+  }
+
+  #addRecipeBtn{
+      width:28%;
+  }
+
+  .recipe-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .modal-content{
+      width:81%;
+  }
+
+  #btn{
+    margin-left: 33%;
+  }
+}
+
+@media(max-width: 493px) {
+  /* Adjust header h1 font size for smaller screens */
+  header h1 {
+      font-size: 28px;
+  }
+
+  /* Stack the search bar and add recipe button for better mobile experience */
+  #search {
+      width: 61%;  /* Make the search bar wider */
+      margin: 10px auto; /* Center the elements */
+  }
+
+  #addRecipeBtn {
+      width: 31%; /* Make the button take up more space */
+      margin-top: 29px;
+      font-size:12px;
+  }
+
+  /* Adjust recipe card size and spacing */
+  .recipe-list {
+      grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); /* More compact grid */
+  }
+
+  .recipe-card {
+      padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  /* Adjust font size inside recipe cards */
+  .recipe-card h3 {
+      font-size: 16px;
+  }
+
+  .recipe-card p {
+      font-size: 12px;
+  }
+
+  /* Adjust the modal size */
+  .modal-content {
+      width: 104%;  /* Make modal content take more width */
+      height: auto; /* Allow height to adjust dynamically */
+  }
+}
+
+@media(max-width: 377px) {
+  /* Adjust header h1 font size for very small screens */
+  header h1 {
+      font-size: 24px;  /* Smaller font for smaller devices */
+  }
+
+  /* Further adjust search bar width */
+  #search {
+      width: 54%;  /* Narrow the search bar */
+      margin: 10px auto; /* Center it */
+  }
+
+  /* Add Recipe Button */
+  #addRecipeBtn {
+      width: 31%;  /* Narrow the button for smaller screens */
+      font-size: 11px;
+      padding: 8px 15px;
+  }
+
+  /* Adjust recipe card layout */
+  .recipe-list {
+      grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); /* More compact grid */
+  }
+
+  /* Adjust font size and padding in recipe cards */
+  .recipe-card {
+      padding: 8px;
+      height:304px;  
+  }
+
+  .recipe-card h3 {
+      font-size: 16px; 
+  }
+
+  .recipe-card p {
+      font-size: 12px;
+  }
+
+  .modal-content {
+      width: 96%;
+      height: auto;
+  }
+
+  input[type="text"], input[type="file"], textarea {
+      padding: 13px 8px;
+      font-size: 1.1em;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+  }
+
+  .delete-content{
+    width:75%;
+  }
+}
